@@ -4,19 +4,22 @@ import javax.swing.JOptionPane;
 import model.Chatbot;
 public class ChatController
 {
+	
+	private Chatbot simpleBot;
+	
+	public ChatController()
+	{
+		simpleBot = new Chatbot();
+	}
 	public void start() {
-		String userText = "";
+		String userText = "...";
 		while (!userText.equalsIgnoreCase("Quit"))
 		{
 			userText = JOptionPane.showInputDialog(null, "Type 'quit' to exit");
 		}
 	}
 	
-	Chatbot Chatbot = new Chatbot();
-	public Chatbot controller() {
-		return Chatbot;
 		
 		
-	}
 	
 }
