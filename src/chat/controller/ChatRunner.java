@@ -1,4 +1,4 @@
-package controller;
+package chat.controller;
 import javax.swing.JOptionPane;
 
 public class ChatRunner
