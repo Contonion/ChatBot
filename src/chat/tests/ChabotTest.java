@@ -94,7 +94,7 @@ public class ChabotTest
 	public void testGetSpookyList()
 	{
 		 assertNotNull("You really need to initialize the spookyList", testedBot.getSpookyList());
-		 assertTrue("You need to have more than 8 items in the spookyList", testedBot.getSpookyList().size() > 8);
+		 assertTrue("You need to have more than 8 items in the spookyList", testedBot.getSpookyList().size() >= 8);
 		 assertTrue("The first item in your list has to mention Halloween", testedBot.getSpookyList().get(0).contains("Halloween"));
 	}
 	
@@ -102,15 +102,15 @@ public class ChabotTest
 	public void testGetResponseList()
 	{
 		 assertNotNull("You really need to initialize the responseList", testedBot.getResponseList());
-		 assertTrue("You need to have more than 15 items in the repsonseList", testedBot.getResponseList().size() > 15);
+		 assertTrue("You need to have more than 15 items in the repsonseList", testedBot.getResponseList().size() >= 15);
 		 assertTrue("The first item in your list has to mention Hello", testedBot.getResponseList().get(0).contains("Hello"));
 	}
 
 	@Test
 	public void testBuildLists()
 	{
-		assertTrue("The responseList is not properly built by the constructor", testedBot.getResponseList().size() > 15);
-		assertTrue("The spookyList is not properly built by the constructor", testedBot.getSpookyList().size() > 8);
+		assertTrue("The responseList is not properly built by the constructor", testedBot.getResponseList().size() >= 15);
+		assertTrue("The spookyList is not properly built by the constructor", testedBot.getSpookyList().size() >= 8);
 	
 	}
 

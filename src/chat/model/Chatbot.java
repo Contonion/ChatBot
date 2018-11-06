@@ -30,11 +30,25 @@ public class Chatbot
 		responseList.add("Yes");
 		responseList.add("No");
 		responseList.add("What is your name??????????????????????????????????????????????????TELLLLLLMEEEEEEE");
+		responseList.add("I Dont know");
+		responseList.add("Possibly");
+		responseList.add("look it up!");
+		responseList.add("Thank you");
+		responseList.add("No Thank you");
+		responseList.add("I'm Sorry!");
+		responseList.add("I hope so!");
+		responseList.add("My name is Cade");
+		responseList.add("Caiden is mean");
+		responseList.add("Ye");
 
 		spookyList.add("Halloween");
 		spookyList.add("Christmas is better than Halloween");
 		spookyList.add("Boo");
 		spookyList.add("Turn around...");
+		spookyList.add("Im watching :3");
+		spookyList.add("Boo (Again)");
+		spookyList.add("even more boo");
+		spookyList.add("Pumpkin");
 	}
 
 	public boolean contentChecker(String text)
@@ -109,13 +123,17 @@ public class Chatbot
 		
 		
 	}
-	public void getSpookyList() 
+	public ArrayList<String> getSpookyList() 
 	{
-		
+		return spookyList;
 	}
 	public void getContent()
 	{
 
+	}
+	public ArrayList<String> getResponseList()
+	{
+		return responseList;
 	}
 
 	public void getResponseList()
