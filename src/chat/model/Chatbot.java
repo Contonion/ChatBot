@@ -9,6 +9,8 @@ public class Chatbot
 	private String joke;
 	private String currentUser;
 	private String content;
+	private String getContent;
+	private String contentChecker;
 	public Chatbot() {
 		this.joke = "Why did the monkey cross the road? It was stapled to the chicken";
 		this.currentUser = new String("Default User - Boring!!");
@@ -30,11 +32,25 @@ public class Chatbot
 		spookyList.add("Boo");
 		spookyList.add("Turn around...");
 	}
+	public boolean contentChecker(String text) {
+		boolean hasContent = false;
+		if (text.equals(content)) {
+			hasContent = true;
+		} else if(text.equals(null)) {
+				hasContent = false;
+		} else {
+			hasContent = false;
+		}
+		return hasContent;
+	}
 	public String processText(String userText)
 	{
-		String Output = "";
-		Output += "You said " + userText;
-		return Output;
+		String answer = "";
+		answer += "You said " + userText;
+		if (contentChecker(userText)) {
+			answer += "You said the special words. \n";
+		}
+		return answer;
 		
 	}
 	public boolean sentimentChecker(String text)
@@ -62,24 +78,21 @@ public class Chatbot
 	}
 	public boolean spookyChecker(String input)
 	{
-		boolean isValid = true;
+		boolean isSpooky = false;
+		if(input.contains("Halloween")) {
+			isSpooky = true;
+		}
+		for(String phrase: spookyList.getSpookyList())
+		{
+			
+		}
+	
 		
-		if(input == null)
-		{
-			isValid = false;
-		}
-		else if (input.length() < 2)
-		{
-			isValid = false;
-		}
-		else if (input.contains("dfg") || input.contains("cvb"))
-		{
-			isValid = false;
-		}
-		return isValid;
+		
 	}
-	public void getSpookyList() {
-		
+	public getSpookyList() {
+		ArrayList spookyList = new ArrayList();
+		return getSpookyList();
 	}
 	public void getContent() {
 		
