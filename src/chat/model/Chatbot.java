@@ -106,39 +106,35 @@ public class Chatbot
 		return isValid;
 	}
 
+	public ArrayList<String> getSpookyList() 
+	{
+		return spookyList;
+	}
 	public boolean spookyChecker(String input)
 	{
 		boolean isSpooky = false;
 		if(input.contains("Halloween")) {
 			isSpooky = true;
 		}
-		for(String phrase: spookyList.getSpookyList())
+		for(ArrayList<String> phrase: spookyList.getSpookyList())
 		{
-			
+			isSpooky = false;
 		}
-		public String getContent() {
-			return Content;
-		}
-	
+		return isSpooky;
 		
 		
 	}
-	public ArrayList<String> getSpookyList() 
-	{
-		return spookyList;
-	}
-	public void getContent()
-	{
-
+	public String getContent() {
+		return content;
 	}
 	public ArrayList<String> getResponseList()
 	{
 		return responseList;
 	}
-
-	public void getResponseList()
+	public String getCurrentUser()
 	{
-
+		return currentUser;
 	}
+	
 
 }
