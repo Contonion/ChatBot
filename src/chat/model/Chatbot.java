@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Chatbot
 {
-	ArrayList responseList = new ArrayList<String>();
-	ArrayList spookyList = new ArrayList<String>();
+	ArrayList<String> responseList = new ArrayList<String>();
+	ArrayList<String> spookyList = new ArrayList<String>();
 	private String joke;
 	private String currentUser;
 	private String content;
 	private String getContent;
 	private String contentChecker;
+	private String ChatbotString;
 
 	public Chatbot()
 	{
@@ -54,13 +55,11 @@ public class Chatbot
 	public boolean contentChecker(String text)
 	{
 		boolean hasContent = false;
-		if (text.equals(content))
+		if (text == null) {
+			hasContent = false;
+		} else if (text.equals(content))
 		{
 			hasContent = true;
-		}
-		else if (text.equals(null))
-		{
-			hasContent = false;
 		}
 		else
 		{
@@ -72,10 +71,13 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String answer = "";
-		answer += "You said " + userText;
+		answer += "You said: " + userText;
 		if (contentChecker(userText))
 		{
-			answer += "You said the special words. \n";
+			answer = "";
+			answer += "Chatbot says: You said the special words. \n";
+		} else if (answer == null) {                     
+			answer += " Chatbot says: It appears we have received null...";
 		}
 		return answer;
 
@@ -105,7 +107,9 @@ public class Chatbot
 		}
 		return isValid;
 	}
-
+	public String ChatbotString() {
+		
+	}
 	public ArrayList<String> getSpookyList() 
 	{
 		return spookyList;
@@ -116,9 +120,11 @@ public class Chatbot
 		if(input.contains("Halloween")) {
 			isSpooky = true;
 		}
-		for(ArrayList<String> phrase: spookyList.getSpookyList())
+		for(String phrase: spookyList)
 		{
-			isSpooky = false;
+			if (input.contains(phrase)) {
+				isSpooky = true;
+			}
 		}
 		return isSpooky;
 		
