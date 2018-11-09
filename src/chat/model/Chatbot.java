@@ -24,6 +24,11 @@ public class Chatbot
 		buildTheLists();
 	}
 
+	public Chatbot(String string)
+	{
+	
+	}
+
 	private void buildTheLists()
 	{
 		responseList.add("Hello! How are you?");
@@ -78,6 +83,10 @@ public class Chatbot
 			answer += "Chatbot says: You said the special words. \n";
 		} else if (answer == null) {                     
 			answer += " Chatbot says: It appears we have received null...";
+		} else {
+			int randomIndex = (int) (Math.random() * responseList.size());
+				answer += "Chatbot says: " + responseList.get(randomIndex);
+			
 		}
 		return answer;
 
@@ -108,7 +117,8 @@ public class Chatbot
 		return isValid;
 	}
 	public String ChatbotString() {
-		
+		content = "sample content";
+		return ChatbotString;
 	}
 	public ArrayList<String> getSpookyList() 
 	{
