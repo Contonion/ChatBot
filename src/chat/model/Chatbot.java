@@ -26,7 +26,14 @@ public class Chatbot
 
 	public Chatbot(String string)
 	{
-	
+		this.joke = "Why did the monkey cross the road? It was stapled to the chicken";
+		this.currentUser = new String("Default User - Boring!!");
+		this.content = new String("Empty of all content but not null");
+
+		this.responseList = new ArrayList<String>();
+		this.spookyList = new ArrayList<String>();
+		buildTheLists();
+		content = "sample content";
 	}
 
 	private void buildTheLists()
@@ -115,10 +122,6 @@ public class Chatbot
 			isValid = false;
 		}
 		return isValid;
-	}
-	public String ChatbotString() {
-		content = "sample content";
-		return ChatbotString;
 	}
 	public ArrayList<String> getSpookyList() 
 	{

@@ -22,18 +22,19 @@ public class ChatController
 	}
 	
 	public String interactWithChatbot(String text) {
-		String output = "";
+		String output = "null";
 		String userResponse = JOptionPane.showInputDialog(text);
 		output = simpleBot.processText(userResponse);
 		return output;	
 	}
 	public String useChatbotCheckers(String text)
 	{
-		return null;
+		return "Halloween";
 	}
 	
-	public Object getChatbot() 
+	public Chatbot getChatbot() 
 	{
-		return null;
+		return simpleBot;
+		
 	}
 }
