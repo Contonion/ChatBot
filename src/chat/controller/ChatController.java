@@ -2,29 +2,31 @@ package chat.controller;
 import javax.swing.JOptionPane;
 
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
 public class ChatController
 {
 	
 	private Chatbot simpleBot;
-	
+	private ChatFrame appFrame;
 	public ChatController()
 	
 	{
 		simpleBot = new Chatbot();
+		appFrame = new ChatFrame(this);
 	}
 	
-	public void start() {
-		String userText = "";
-		while (!userText.equalsIgnoreCase("Quit"))
-		{
-			
-		}
+	public void start() 
+	{		
+		
 	}
 	
 	public String interactWithChatbot(String text) {
 		String output = "null";
-		String userResponse = JOptionPane.showInputDialog(text);
-		output = simpleBot.processText(userResponse);
+		if(text == null) {
+			output += "You really shouldnt send null";
+		}
+		String userResponse = JOptionPane.showInputDialog(null, "Hi Whats  up??");
+		output += simpleBot.processText(userResponse);
 		return output;	
 	}
 	public String useChatbotCheckers(String text)
