@@ -22,16 +22,23 @@ public class ChatController
 	
 	public String interactWithChatbot(String text) {
 		String output = "null";
-		if(text == null) {
-			output += "You really shouldnt send null";
-		}
-		String userResponse = JOptionPane.showInputDialog(null, "Hi Whats  up??");
-		output += simpleBot.processText(userResponse);
+		output += simpleBot.processText(text);
 		return output;	
 	}
 	public String useChatbotCheckers(String text)
 	{
-		return "Halloween";
+			String testedValues = "The following checkers passed:";
+			if (simpleBot.contentChecker(text)) {
+			testedValues += "\nContent Checker";
+			if (simpleBot.spookyChecker(text)) {
+				return "\nSpooky Checker Happy Halloween";
+			}
+			if (simpleBot.validityChecker(text))
+			{
+				testedValues += "\nValidity Checker";
+			}
+		}
+		return testedValues;
 	}
 	
 	public Chatbot getChatbot() 

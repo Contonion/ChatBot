@@ -83,21 +83,23 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String answer = "";
-		answer += "You said: " + userText;
-		if (contentChecker(userText))
+		if (!validityChecker(userText))
 		{
-			answer = "";
-			answer += "Chatbot says: You said the special words. \n";
-		} else if (answer == null) {                     
-			answer += " Chatbot says: It appears we have received null...";
+			answer += "You really should not send null";
 		} else {
-			int randomIndex = (int) (Math.random() * responseList.size());
-				answer += "Chatbot says: " + responseList.get(randomIndex);
+			answer += "You said: " + userText + "\n";
+			if (contentChecker(userText))
+			{
+				answer += "You said the special words. \n";
+			}
+			int randomIndex = (int) (responseList.size() * Math.random());
+			answer += "Chatbot says: " + responseList.get(randomIndex) + "\n";
+			
 			
 		}
 		return answer;
-
 	}
+		
 
 	public boolean sentimentChecker(String text)
 	{
@@ -153,6 +155,15 @@ public class Chatbot
 	public String getCurrentUser()
 	{
 		return currentUser;
+	}
+
+	public boolean validityChecker(String text)
+	{
+		boolean isValid = false;
+		if (text != null && text.length() > 3) {
+			isValid = true;
+		}
+		return isValid;
 	}
 	
 
