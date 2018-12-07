@@ -80,22 +80,20 @@ public class Chatbot
 		return hasContent;
 	}
 
-	public String processText(String userText)
-	{
+	public String processText(String userText) {
 		String answer = "";
-		if (!validityChecker(userText))
+		if(!validityChecker(userText))
 		{
-			answer += "You really should not send null";
-		} else {
+			answer += "You really should not send null\n";
+		}
+		else
+		{
 			answer += "You said: " + userText + "\n";
-			if (contentChecker(userText))
-			{
-				answer += "You said the special words. \n";
+			if(contentChecker(userText)) {
+				answer += "You said the special words \n";
 			}
-			int randomIndex = (int) (responseList.size() * Math.random());
+			int randomIndex = (int) (Math.random() * responseList.size());
 			answer += "Chatbot says: " + responseList.get(randomIndex) + "\n";
-			
-			
 		}
 		return answer;
 	}
