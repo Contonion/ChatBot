@@ -3,6 +3,7 @@ import chat.controller.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
 public class ChatPanel extends JPanel
 {
 	private ChatController appController;
@@ -86,11 +87,17 @@ public class ChatPanel extends JPanel
 				chatField.setText("");
 			}
 		});
-		saveButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent click) {
-				
+		saveButton.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent click)
+			{
+				String chatText = chatArea.getText();
+				String path = ".";
+				IOController.saveText(appController, path, chatText);
+				chatArea.setText("Chat saved!");
 			}
-		});
+				});
+		
 		loadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click) {
 				
