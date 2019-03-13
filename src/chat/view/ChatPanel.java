@@ -51,6 +51,35 @@ public class ChatPanel extends JPanel
 		this.add(loadButton);
 		this.add(checkerButton);
 		this.add(chatField);
+		
+		JLabel lblWelcomeToChatbot = new JLabel("Welcome to Chatbot! Enter something, down below to begin");
+		appLayout.putConstraint(SpringLayout.NORTH, lblWelcomeToChatbot, 10, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, lblWelcomeToChatbot, 0, SpringLayout.WEST, chatPane);
+		add(lblWelcomeToChatbot);
+	}
+	private String getPath(String choice)
+	{
+		String path = ".";
+		int result = -99;
+		JFileChooser fileChooser = new JFileChooser();
+		if (choice.equals("save"))
+		{
+			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			result = fileChooser.showSaveDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getCurrentDirectory().getAbsolutePath();
+			}
+		}
+		else
+		{
+			result = fileChooser.showOpenDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getSelectedFile().getAbsolutePath();
+			}
+		}
+		return path;
 	}
 	private void setupLayout() {
 		appLayout.putConstraint(SpringLayout.EAST, saveButton, -108, SpringLayout.WEST, loadButton);
@@ -100,7 +129,9 @@ public class ChatPanel extends JPanel
 		
 		loadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click) {
-				
+				String path = getPath("load");
+				String chatText = IOController.loadFile(appController, path);
+				chatArea.setText(chatText);
 			}
 		});
 		checkerButton.addActionListener(new ActionListener() {

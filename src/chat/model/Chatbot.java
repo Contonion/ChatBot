@@ -90,7 +90,7 @@ public class Chatbot
 		{
 			answer += "You said: " + userText + "\n";
 			if(contentChecker(userText)) {
-				answer += "You said the special words \n";
+				answer += "You said: the special words \n";
 			}
 			int randomIndex = (int) (Math.random() * responseList.size());
 			answer += "Chatbot says: " + responseList.get(randomIndex) + "\n";
